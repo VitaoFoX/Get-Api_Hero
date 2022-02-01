@@ -16,14 +16,20 @@ namespace Desafio_Nstech.Services.Implementations
             _mapper = mapper;
         }
 
-        public IEnumerable<HeroVO> FindAll()
+        private List<Hero> GetApiHero()
         {
-            var client = new RestClient("https://akabab.github.io/superhero-api/api/all.json");
-            var request = new RestRequest(Method.GET);
+            var client = new RestClient("https://akabab.github.io/superhero-api");
+            var request = new RestRequest("/api/all.json");
             request.AddHeader("Content-Type", "application/json");
             IRestResponse response = client.Execute(request);
             List<Hero> herosObject = (List<Hero>)JsonConvert.DeserializeObject(response.Content, typeof(List<Hero>));
-            return _mapper.Map<List<HeroVO>>(herosObject);
+
+            return herosObject;
+        }
+
+        public IEnumerable<HeroVO> FindAll()
+        {
+            return _mapper.Map<List<HeroVO>>(GetApiHero());
         }
 
         private Hero MockHero(int i)
@@ -35,9 +41,37 @@ namespace Desafio_Nstech.Services.Implementations
             };
         }
 
-        public List<Hero> FindByPowerStat(string powerstat)
+        public IEnumerable<Hero> FindByPowerStat(string powerstat)
         {
-            throw new NotImplementedException();
+
+            var herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Power).Take(5);
+
+            switch (powerstat)
+            {
+                case "intelligence":
+                    herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Intelligence).Take(5);
+                    break;
+                case "strength":
+                    herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Strength).Take(5);
+                    break;
+                case "speed":
+                    herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Speed).Take(5);
+                    break;
+                case "durability":
+                    herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Durability).Take(5);
+                    break;
+                case "power":
+                    herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Power).Take(5);
+                    break;
+                case "combat":
+                    herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Combat).Take(5);
+                    break;
+                default:
+                    herosOrder = GetApiHero().OrderByDescending(hero => hero.PowerStats.Intelligence).Take(5);
+                    break;
+            }
+
+            return herosOrder;
         }
     }
 }

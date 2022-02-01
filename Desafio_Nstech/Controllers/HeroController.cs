@@ -23,10 +23,17 @@ namespace Desafio_Nstech.Controllers
             return Ok(_heroService.FindAll());
         }
 
-        /*[HttpGet("/powerstat/{powerstat}")]
+        [HttpGet("/powerstat/{powerstat}")]
         public IActionResult Get(string powerstat)
         {
-            return Ok(_heroService.FindByPowerStat(powerstat));
-        } */
+            if (powerstat != "intelligence" && powerstat != "strength" && powerstat != "speed" && powerstat != "durability" && powerstat != "power" && powerstat != "combat")
+            {
+                return BadRequest("Validation fails");
+            }
+            else
+            {
+                return Ok(_heroService.FindByPowerStat(powerstat));
+            }
+        } 
     }
 }

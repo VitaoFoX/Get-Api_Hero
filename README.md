@@ -5,7 +5,7 @@
 ## Projeto
 Get Api Hero tem como objetivo de extrair informações da API pública (https://akabab.github.io/superhero-api/) e retornar algumas chamadas.
 
-`\` Irá retornar todos os hérois no formato:
+`/` Irá retornar todos os hérois no formato:
 
 ```json
 [
@@ -17,8 +17,16 @@ Get Api Hero tem como objetivo de extrair informações da API pública (https:/
     "id": 2,
     "name": "Abe Sapien"
   }
+  ,
+  {
+    "id": 3,
+    "name": "Abin Sur"
+  }
 ]
 ```
+
+`/powerstat/{powerstat}` Irá retornar os 5 primerios hérois de acordo com o Powerstat escolhido. Parâmetros válidos: intelligence, strength, speed, durability, power, combat
+
 
 
 ### Algumas tecnologias utilizadas:

@@ -20,19 +20,33 @@ namespace Desafio_Nstech.Controllers
         [HttpGet("/")]
         public IActionResult Get()
         {
-            return Ok(_heroService.FindAll());
+            try
+            {
+                return Ok(_heroService.FindAll());
+            }
+            catch
+            {
+                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+            }
         }
 
         [HttpGet("/powerstat/{powerstat}")]
         public IActionResult Get(string powerstat)
         {
-            if (powerstat != "intelligence" && powerstat != "strength" && powerstat != "speed" && powerstat != "durability" && powerstat != "power" && powerstat != "combat")
+            try
             {
-                return BadRequest("Validation fails");
+                if (powerstat != "intelligence" && powerstat != "strength" && powerstat != "speed" && powerstat != "durability" && powerstat != "power" && powerstat != "combat")
+                {
+                    return BadRequest("Validation fails");
+                }
+                else
+                {
+                    return Ok(_heroService.FindByPowerStat(powerstat));
+                }
             }
-            else
+            catch
             {
-                return Ok(_heroService.FindByPowerStat(powerstat));
+                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
             }
         } 
     }

@@ -29,3 +29,9 @@ D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\AutoMapper.E
 D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\RestSharp.dll
 D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\obj\Debug\net6.0\Desafio_Nstech.csproj.AssemblyReference.cache
 D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\System.Web.Razor.dll
+D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\System.Web.Helpers.dll
+D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\System.Web.WebPages.dll
+D:\Projetos\GeekShop\Desafio_Nstech\Desafio_Nstech\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

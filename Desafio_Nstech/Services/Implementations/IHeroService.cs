@@ -6,6 +6,6 @@ namespace Desafio_Nstech.Services.Implementations
     public interface IHeroService
     {
         IEnumerable<HeroVO> FindAll();
-        IEnumerable<Hero> FindByPowerStat(string powerstat);
+        IEnumerable<dynamic> FindByPowerStat(string powerstat);
     }
 }
